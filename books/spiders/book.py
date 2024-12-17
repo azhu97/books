@@ -1,6 +1,5 @@
 import scrapy
 from books.items import BooksItem
-
 class BookSpider(scrapy.Spider):
     name = "book"
     allowed_domains = ["books.toscrape.com"]
