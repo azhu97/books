@@ -15,5 +15,8 @@ class BookSpider(scrapy.Spider):
         next_page = response.css("li.next > a::attr(href)").get()
         if next_page:
             next_page_url = response.urljoin(next_page)
+            self.logger.info(
+                f"Naviating to next page with URL {next_page_url}."
+            )
             yield scrapy.Request(url=next_page_url, callback=self.parse)
         pass
